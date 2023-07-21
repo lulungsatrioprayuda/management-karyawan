@@ -18,6 +18,10 @@ class Karyawan extends Model
         'unit_id',
     ];
 
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class, 'unit_id');
+    }
     public function jabatans()
     {
         return $this->belongsToMany(Jabatan::class, 'jabatan_karyawan');
