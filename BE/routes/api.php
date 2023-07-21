@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,11 @@ Route::post('/unit', [UnitController::class, 'store']);
 Route::put('/unit/{id}', [UnitController::class, 'update']);
 Route::delete('/unit/{id}', [UnitController::class, 'destroy']);
 
+Route::get('/karyawan', [KaryawanController::class, 'index']);
+Route::get('/karyawan/{id}', [KaryawanController::class, 'show']);
+Route::post('/karyawan', [KaryawanController::class, 'store']);
+Route::put('/karyawan/{id}', [KaryawanController::class, 'update']);
+Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy']);
 
 // Endpoint API untuk model "Jabatan" menggunakan resource controller
 //Route::resource('jabatan', JabatanController::class)->only(['index'])->withoutMiddleware(['auth:sanctum']);
