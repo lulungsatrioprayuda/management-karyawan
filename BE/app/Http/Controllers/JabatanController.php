@@ -15,7 +15,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        $jabatans = Jabatan::all();
+        return response()->json($jabatans);
     }
 
     /**
@@ -36,18 +37,22 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jabatan = Jabatan::create($request->all());
+        return response()->json($jabatan, 201);
     }
 
+
     /**
-     * Display the specified resource.
+     * A description of the entire PHP function.
      *
-     * @param  \App\Models\Jabatan  $jabatan
-     * @return \Illuminate\Http\Response
+     * @param datatype $id description
+     * @throws Some_Exception_Class description of exception
+     * @return Some_Return_Value
      */
-    public function show(Jabatan $jabatan)
+    public function show($id)
     {
-        //
+        $jabatan = Jabatan::findOrFail($id);
+        return response()->json($jabatan);
     }
 
     /**
@@ -68,9 +73,11 @@ class JabatanController extends Controller
      * @param  \App\Models\Jabatan  $jabatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jabatan $jabatan)
+    public function update(Request $request, $id)
     {
-        //
+        $jabatan = Jabatan::findOrFail($id);
+        $jabatan->update($request->all());
+        return response()->json($jabatan, 200);
     }
 
     /**
@@ -79,8 +86,10 @@ class JabatanController extends Controller
      * @param  \App\Models\Jabatan  $jabatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jabatan $jabatan)
+    public function destroy($id)
     {
-        //
+        $jabatan = Jabatan::findOrFail($id);
+        $jabatan->delete();
+        return response()->json(null, 204);
     }
 }
