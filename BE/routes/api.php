@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,10 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::apiResource('jabatan', JabatanController::class);
+Route::resource('jabatan', JabatanController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+
+Route::get('/unit', [UnitController::class, 'index']);
+Route::get('/unit/{id}', [UnitController::class, 'show']);
+Route::post('/unit', [UnitController::class, 'store']);
+Route::put('/unit/{id}', [UnitController::class, 'update']);
+Route::delete('/unit/{id}', [UnitController::class, 'destroy']);
