@@ -27,3 +27,17 @@ Route::get('/unit/{id}', [UnitController::class, 'show']);
 Route::post('/unit', [UnitController::class, 'store']);
 Route::put('/unit/{id}', [UnitController::class, 'update']);
 Route::delete('/unit/{id}', [UnitController::class, 'destroy']);
+
+
+// Endpoint API untuk model "Jabatan" menggunakan resource controller
+//Route::resource('jabatan', JabatanController::class)->only(['index'])->withoutMiddleware(['auth:sanctum']);
+
+// Grup route yang menggunakan middleware "auth:sanctum"
+//Route::middleware('auth:sanctum')->group(function () {
+// Endpoint API untuk model "Unit" menggunakan controller standar
+//    Route::get('/unit', [UnitController::class, 'index']);
+//    Route::get('/unit/{id}', [UnitController::class, 'show']);
+//    Route::post('/unit', [UnitController::class, 'store']);
+//    Route::put('/unit/{id}', [UnitController::class, 'update']);
+//    Route::delete('/unit/{id}', [UnitController::class, 'destroy']);
+//});
