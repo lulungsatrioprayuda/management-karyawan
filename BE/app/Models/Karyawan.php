@@ -22,7 +22,7 @@ class Karyawan extends Model
     {
         return $this->belongsTo(Unit::class, 'unit_id');
     }
-    public function jabatans()
+    public function jabatan()
     {
         return $this->belongsToMany(Jabatan::class, 'jabatan_karyawan');
     }

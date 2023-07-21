@@ -42,7 +42,7 @@ class KaryawanSeeder extends Seeder
             $karyawan = Karyawan::create($karyawan);
 
             $jabatanIds = [1, 3];
-            $karyawan->jabatans()->attach($jabatanIds);
+            $karyawan->jabatan()->attach($jabatanIds);
         }
     }
 }
