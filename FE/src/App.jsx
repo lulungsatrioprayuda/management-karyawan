@@ -1,14 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline font-[Poppins]">
-        Hello world!
-      </h1>
+      <Router>
+        <Routes>
+          <Route path={"/"} element={<Content />} />
+        </Routes>
+      </Router>
     </>
   );
 }
